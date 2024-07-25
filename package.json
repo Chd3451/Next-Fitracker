@@ -27,6 +27,7 @@
     "eslint-config-next": "latest",
     "jsvectormap": "^1.5.3",
     "lucide-react": "^0.292.0",
+    "mysql2": "^3.10.3",
     "next": "latest",
     "postcss": "^8.4.40",
     "react": "latest",
