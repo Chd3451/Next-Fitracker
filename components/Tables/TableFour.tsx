@@ -5,42 +5,35 @@ import DropdownDefault from "../Dropdowns/DropdownDefault";
 const brandData: BRAND[] = [
   {
     logo: "/images/brand/brand-01.svg",
-    name: "Google",
-    visitors: 3.5,
-    revenues: "5,768",
-    sales: 590,
-    conversion: 4.8,
+    name: "Google Adds",
+    visitors: 0,
+    revenues: "Free Trial",
+    sales: 0,
+    conversion: 0,
   },
   {
     logo: "/images/brand/brand-02.svg",
     name: "Twitter",
-    visitors: 2.2,
-    revenues: "4,635",
-    sales: 467,
-    conversion: 4.3,
+    visitors: 2.,
+    revenues: "15 Day Free",
+    sales: 0,
+    conversion: 1,
   },
   {
     logo: "/images/brand/brand-06.svg",
     name: "Youtube",
-    visitors: 2.1,
-    revenues: "4,290",
-    sales: 420,
-    conversion: 3.7,
+    visitors: 2,
+    revenues: "Free Trial",
+    sales: 0,
+    conversion: 5,
   },
-  {
-    logo: "/images/brand/brand-04.svg",
-    name: "Vimeo",
-    visitors: 1.5,
-    revenues: "3,580",
-    sales: 389,
-    conversion: 2.5,
-  },
+  
   {
     logo: "/images/brand/brand-05.svg",
     name: "Facebook",
-    visitors: 3.5,
-    revenues: "6,768",
-    sales: 390,
+    visitors: 3,
+    revenues: "2,000",
+    sales: 1,
     conversion: 4.2,
   },
 ];
@@ -52,7 +45,7 @@ const TableFour: React.FC = () => {
         <div className="mb-6 flex justify-between">
           <div>
             <h4 className="text-title-sm2 font-bold text-black dark:text-white">
-              Top Channels
+              Mejores Entradas
             </h4>
           </div>
           <DropdownDefault />
@@ -62,12 +55,12 @@ const TableFour: React.FC = () => {
           <div className="grid grid-cols-3 rounded-sm bg-gray-2 dark:bg-meta-4 sm:grid-cols-4">
             <div className="p-2.5 xl:p-4">
               <h5 className="text-sm font-medium uppercase xsm:text-base">
-                Source
+                Recursos
               </h5>
             </div>
             <div className="p-2.5 text-center xl:p-4">
               <h5 className="text-sm font-medium uppercase xsm:text-base">
-                Visitors
+                Visitas
               </h5>
             </div>
             <div className="p-2.5 text-center xl:p-4">

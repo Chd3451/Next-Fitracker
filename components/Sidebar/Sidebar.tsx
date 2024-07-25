@@ -50,12 +50,12 @@ const Sidebar = ({}: SidebarProps) => {
             className="h-6 w-6 rounded-md"
             width={400}
             height={400}
-            src={"/images/logo/logo-icon.png"}
+            src={"/images/logo/icon-01.jpg"}
             alt="Logo"
           />
           {isSidebarOpen && (
             <h1 className=" ml-2 text-xl font-semibold text-white">
-              ShakibAdmin
+              FitTracker
             </h1>
           )}
         </Link>
@@ -78,12 +78,12 @@ const Sidebar = ({}: SidebarProps) => {
               {/* <!-- Menu Item Dashboard --> */}
               <li>
                 <ExpandMenu
-                  name="Homepage"
+                  name="Pagina Principal"
                   icon={<HomeIcon className="  h-6 w-6 hover:text-white" />}
                 >
                   <LinkItem
                     icon={<ShoppingBag />}
-                    title="E-commerce"
+                    title="Ventas"
                     href="/"
                   />
                 </ExpandMenu>
@@ -93,7 +93,7 @@ const Sidebar = ({}: SidebarProps) => {
               {/* <!-- Menu Item Calendar --> */}
               <li>
                 <LinkItem
-                  title="Calendar"
+                  title="Calendario"
                   href="/calendar"
                   icon={<Calendar className="h-6 w-6" />}
                 ></LinkItem>
@@ -101,7 +101,7 @@ const Sidebar = ({}: SidebarProps) => {
 
               <li>
                 <LinkItem
-                  title="Tables"
+                  title="Productos"
                   href="/tables"
                   icon={<Table2Icon className="h-6 w-6" />}
                 ></LinkItem>
@@ -144,7 +144,7 @@ const Sidebar = ({}: SidebarProps) => {
               <li>
                 <ExpandMenu icon={<Component className="h-6 w-6" />} name="UI">
                   <LinkItem
-                    title="Alerts"
+                    title="Alertas"
                     href="/ui/alerts"
                     icon={<AlertCircle className="h-5 w-5" />}
                   ></LinkItem>
