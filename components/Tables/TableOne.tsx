@@ -13,42 +13,35 @@ import {
 const brandData: BRAND[] = [
   {
     logo: "/images/brand/brand-01.svg",
-    name: "Google",
-    visitors: 3.5,
-    revenues: "5,768",
-    sales: 590,
-    conversion: 4.8,
+    name: "Google Adds",
+    visitors: 0,
+    revenues: "Free Trial",
+    sales: 0,
+    conversion: 0,
   },
   {
     logo: "/images/brand/brand-02.svg",
     name: "Twitter",
-    visitors: 2.2,
-    revenues: "4,635",
-    sales: 467,
-    conversion: 4.3,
+    visitors: 2.,
+    revenues: "15 Day Free",
+    sales: 0,
+    conversion: 1,
   },
   {
     logo: "/images/brand/brand-03.svg",
     name: "Github",
-    visitors: 2.1,
-    revenues: "4,290",
-    sales: 420,
-    conversion: 3.7,
+    visitors: 2,
+    revenues: "Free Trial",
+    sales: 0,
+    conversion: 5,
   },
-  {
-    logo: "/images/brand/brand-04.svg",
-    name: "Vimeo",
-    visitors: 1.5,
-    revenues: "3,580",
-    sales: 389,
-    conversion: 2.5,
-  },
+  
   {
     logo: "/images/brand/brand-05.svg",
     name: "Facebook",
-    visitors: 3.5,
-    revenues: "6,768",
-    sales: 390,
+    visitors: 3,
+    revenues: "2,000",
+    sales: 1,
     conversion: 4.2,
   },
 ];
@@ -56,14 +49,14 @@ const brandData: BRAND[] = [
 const TableOne = () => {
   return (
     <div className="rounded-sm border border-stroke bg-white px-5 pb-2.5 pt-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
-      <Title>Top Channels</Title>
+      <Title>Mejores Canales</Title>
       <Table>
         <TableHead>
           <TableRow>
-            <TableHeaderCell>Source</TableHeaderCell>
-            <TableHeaderCell>Visitors</TableHeaderCell>
-            <TableHeaderCell>Revenues</TableHeaderCell>
-            <TableHeaderCell>Sales</TableHeaderCell>
+            <TableHeaderCell>Recursos</TableHeaderCell>
+            <TableHeaderCell>Visitas</TableHeaderCell>
+            <TableHeaderCell>Renovaciones</TableHeaderCell>
+            <TableHeaderCell>Ventas</TableHeaderCell>
             <TableHeaderCell>Conversion</TableHeaderCell>
           </TableRow>
         </TableHead>

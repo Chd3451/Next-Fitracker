@@ -2,28 +2,28 @@ import { Package } from "@/types/package";
 
 const packageData: Package[] = [
   {
-    name: "Free package",
+    name: "Paquete Gratis",
     price: 0.0,
-    invoiceDate: `Jan 13,2023`,
-    status: "Paid",
+    invoiceDate: `Julio,2024`,
+    status: "Sin Costo",
   },
   {
-    name: "Standard Package",
+    name: "Paquete Estandar Cliente",
+    price: 20.00,
+    invoiceDate: `Agosto 24,2024`,
+    status: "No pagado",
+  },
+  {
+    name: "Entrenamiento",
+    price: 95.00,
+    invoiceDate: `Julio 24,2025`,
+    status: "No pagado",
+  },
+  {
+    name: "Paquete entrenamiento estandar",
     price: 59.0,
-    invoiceDate: `Jan 13,2023`,
-    status: "Paid",
-  },
-  {
-    name: "Business Package",
-    price: 99.0,
-    invoiceDate: `Jan 13,2023`,
-    status: "Unpaid",
-  },
-  {
-    name: "Standard Package",
-    price: 59.0,
-    invoiceDate: `Jan 13,2023`,
-    status: "Pending",
+    invoiceDate: `Jan 24,2025`,
+    status: "Pendiente",
   },
 ];
 
@@ -35,13 +35,13 @@ const TableThree = () => {
           <thead>
             <tr className="bg-gray-2 text-left dark:bg-meta-4">
               <th className="min-w-[220px] py-4 px-4 font-medium text-black dark:text-white xl:pl-11">
-                Package
+                Paquete
               </th>
               <th className="min-w-[150px] py-4 px-4 font-medium text-black dark:text-white">
-                Invoice date
+                Fecha de Vencimiento
               </th>
               <th className="min-w-[120px] py-4 px-4 font-medium text-black dark:text-white">
-                Status
+                Estado
               </th>
               <th className="py-4 px-4 font-medium text-black dark:text-white">
                 Actions

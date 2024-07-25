@@ -16,9 +16,9 @@ const ECommerce: React.FC = () => {
   return (
     <>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-3 2xl:gap-7.5">
-        <DataCard name="Metas" amount={12699} />
-        <DataCard name="orders" amount={34600} />
-        <DataCard name="Clientes" amount={400} />
+        <DataCard name="Metas" amount={1000} />
+        <DataCard name="orders" amount={1001} />
+        <DataCard name="Clientes" amount={145} />
       </div>
       <div className="space-y-5 py-5">
         <AreaChart />

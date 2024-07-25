@@ -23,11 +23,11 @@ const DataCard = (props: Props) => {
             <Text>{name}</Text>
             <Metric> {amount}</Metric>
           </div>
-          <BadgeDelta deltaType="moderateIncrease">13.2%</BadgeDelta>
+          <BadgeDelta deltaType="moderateIncrease">15%</BadgeDelta>
         </Flex>
         <Flex className="mt-4">
-          <Text className="truncate">68% ( 149,940)</Text>
-          <Text> 220,500</Text>
+          <Text className="truncate">14.5% ( 145)</Text>
+          <Text> 1,000</Text>
         </Flex>
         <ProgressBar value={15.9} className="mt-2" />
       </Card>
