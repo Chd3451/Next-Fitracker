@@ -31,3 +31,17 @@ enum Rol {
   USUARIO
   ADMIN
 }
+
+model Cliente {
+  id             Int      @id @default(autoincrement()) // Identificador único del cliente
+  nombre         String   @db.VarChar(50) // Nombre completo del cliente
+  fechaNacimiento DateTime @db.Date // Fecha de nacimiento del cliente
+  peso           Float    @db.Double // Peso actual del cliente
+  altura         Float    @db.Double // Altura del cliente
+  metaPeso       Float    @db.Double // Peso objetivo del cliente
+  fechaRegistro  DateTime @db.DateTime // Fecha en la que el cliente fue registrado
+  email          String   @db.VarChar(50) @unique // Correo electrónico del cliente
+  telefono       String   @db.VarChar(15) // Número de teléfono del cliente
+  genero         String   @db.VarChar(1) // Género del cliente ('M'/'F')
+  direccion      String   @db.VarChar(100) // Dirección del domicilio del cliente
+}
