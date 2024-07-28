@@ -4,7 +4,9 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "FitTracker | Fitness",
   description: "FitTracker",
-  // other metadata
+  icons:{
+    icon:  '/images/FitTracker.svg',
+  }
 };
 
 export default function Home() {

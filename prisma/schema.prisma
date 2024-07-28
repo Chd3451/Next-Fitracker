@@ -44,4 +44,23 @@ model Cliente {
   telefono       String   @db.VarChar(15) // Número de teléfono del cliente
   genero         String   @db.VarChar(1) // Género del cliente ('M'/'F')
   direccion      String   @db.VarChar(100) // Dirección del domicilio del cliente
+  actividad      String   @db.VarChar(50) @default("sedentario")
+   BMR         BMR?
+}
+
+
+model BMR {
+  id            Int      @id @default(autoincrement())
+  peso          Float
+  altura        Float
+  edad          Int
+  actividad     String
+  objetivo      String
+  clienteId  Int      @unique
+  cliente    Cliente  @relation(fields: [clienteId], references: [id])
+  proteinas     Float
+  carbohidratos Float
+  grasas        Float
+  calorias      Float
+  fecha         DateTime @default(now())
 }

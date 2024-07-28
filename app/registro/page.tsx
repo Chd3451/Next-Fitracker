@@ -2,9 +2,11 @@
 
 import React, { useState, useEffect } from 'react';
 import { FaUser, FaCalendarAlt, FaWeight, FaRulerVertical, FaBullseye, FaEnvelope, FaPhone, FaVenusMars, FaMapMarkerAlt } from 'react-icons/fa';
+import Link from 'next/link';
 
 
 interface Cliente {
+  id: number;
   nombre: string;
   fechaNacimiento: string;
   peso: number;
@@ -252,46 +254,52 @@ const RegisterForm: React.FC = () => {
     </div>
       <div className="bg-white shadow-lg rounded-lg p-10">
         <h2 className="text-2xl font-bold text-gray-800 mb-6">Clientes Registrados</h2>
-        <div className="grid grid-cols-6 border-t border-stroke py-4.5 px-4 dark:border-strokedark sm:grid-cols-8 md:px-6 2xl:px-7.5">
-          <div className="col-span-2 flex items-center">
-            <p className="font-medium">Nombre</p>
-          </div>
-          <div className="col-span-2 hidden items-center sm:flex">
-            <p className="font-medium">Email</p>
-          </div>
-          <div className="col-span-2 flex items-center">
-            <p className="font-medium">Teléfono</p>
-          </div>
-          <div className="col-span-1 flex items-center">
-            <p className="font-medium">Peso</p>
-          </div>
-          <div className="col-span-1 flex items-center">
-            <p className="font-medium">Altura</p>
-          </div>
-        </div>
+        <div className="grid grid-cols-10 border-t border-stroke py-4.5 px-4 dark:border-strokedark md:px-6 2xl:px-7.5">
+    <div className="col-span-2 flex items-center">
+      <p className="font-medium">Nombre</p>
+    </div>
+    <div className="col-span-2 hidden items-center sm:flex">
+      <p className="font-medium">Email</p>
+    </div>
+    <div className="col-span-2 flex items-center">
+      <p className="font-medium">Teléfono</p>
+    </div>
+    <div className="col-span-1 flex items-center">
+      <p className="font-medium">Peso</p>
+    </div>
+    <div className="col-span-1 flex items-center">
+      <p className="font-medium">Altura</p>
+    </div>
+    <div className="col-span-1 flex items-center">
+      <p className="font-medium">Acciones</p>
+    </div>
+  </div>
 
-        {clientes.map((cliente, index) => (
-          <div
-            className="grid grid-cols-6 border-t border-stroke py-4.5 px-4 dark:border-strokedark sm:grid-cols-8 md:px-6 2xl:px-7.5"
-            key={index}
-          >
-            <div className="col-span-2 flex items-center">
-              <p className="text-sm text-black dark:text-white">{cliente.nombre}</p>
-            </div>
-            <div className="col-span-2 hidden items-center sm:flex">
-              <p className="text-sm text-black dark:text-white">{cliente.email}</p>
-            </div>
-            <div className="col-span-2 flex items-center">
-              <p className="text-sm text-black dark:text-white">{cliente.telefono}</p>
-            </div>
-            <div className="col-span-1 flex items-center">
-              <p className="text-sm text-black dark:text-white">{cliente.peso}</p>
-            </div>
-            <div className="col-span-1 flex items-center">
-              <p className="text-sm text-black dark:text-white">{cliente.altura}</p>
-            </div>
-          </div>
-        ))}
+          {clientes.map((cliente, index) => (
+    <div
+      className="grid grid-cols-10 border-t border-stroke py-4.5 px-4 dark:border-strokedark md:px-6 2xl:px-7.5"
+      key={index}
+    >
+      <div className="col-span-2 flex items-center">
+        <p className="text-sm text-black dark:text-white">{cliente.nombre}</p>
+      </div>
+      <div className="col-span-2 hidden items-center sm:flex">
+        <p className="text-sm text-black dark:text-white">{cliente.email}</p>
+      </div>
+      <div className="col-span-2 flex items-center">
+        <p className="text-sm text-black dark:text-white">{cliente.telefono}</p>
+      </div>
+      <div className="col-span-1 flex items-center">
+        <p className="text-sm text-black dark:text-white">{cliente.peso}</p>
+      </div>
+      <div className="col-span-1 flex items-center">
+        <p className="text-sm text-black dark:text-white">{cliente.altura}</p>
+      </div>
+      <div className="col-span-1 flex items-center">
+        <Link href={`/cliente?id=${cliente.id}`} className="text-sm text-blue-500">Ver</Link>
+      </div>
+    </div>
+  ))}
       </div>
     </div>
   );

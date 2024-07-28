@@ -1,3 +1,4 @@
+import { FaRunning, FaUserPlus } from "react-icons/fa";
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -46,13 +47,7 @@ const Sidebar = ({}: SidebarProps) => {
       {/* <!-- SIDEBAR HEADER --> */}
       <div className="relative flex w-full items-center justify-between gap-2 px-6 py-5.5 lg:py-6.5">
         <Link className="flex items-center" href="/">
-          <Image
-            className="h-6 w-6 rounded-md"
-            width={400}
-            height={400}
-            src={"/images/logo/icon-01.jpg"}
-            alt="Logo"
-          />
+        <FaRunning  className="h-8 w-8 text-primary" /> {/* Usa el ícono */}
           {isSidebarOpen && (
             <h1 className=" ml-2 text-xl font-semibold text-white">
               FitTracker
@@ -109,54 +104,23 @@ const Sidebar = ({}: SidebarProps) => {
 
               {/* <!-- Menu Item Tables --> */}
 
-              {/* <!-- Menu Item Settings --> */}
+              
               <li>
                 <LinkItem
-                  title="Settings"
-                  href="/settings"
-                  icon={<Settings className="h-6 w-6" />}
-                ></LinkItem>
-              </li>
-
-              {/* <!-- Menu Item Settings --> */}
-              <li>
-                <LinkItem
-                  title="Profile"
-                  href="/profile"
+                  title="Cliente"
+                  href="/cliente"
                   icon={<User2Icon className="h-6 w-6" />}
                 ></LinkItem>
               </li>
 
-              {/* <!-- Menu Item Chart --> */}
+
               <li>
                 <LinkItem
-                  title="Charts"
-                  href="/chart"
-                  icon={<BarChart2 className="h-6 w-6" />}
+                  title="Registro"
+                  href="/registro"
+                  icon={<FaUserPlus className="h-6 w-6" />}
                 ></LinkItem>
               </li>
-
-              {/* <!-- Menu Item Chart --> */}
-
-              {/* <!-- Menu Item Ui Elements --> */}
-
-              {/* <!-- Dropdown Menu Start --> */}
-              <li>
-                <ExpandMenu icon={<Component className="h-6 w-6" />} name="UI">
-                  <LinkItem
-                    title="Alertas"
-                    href="/ui/alerts"
-                    icon={<AlertCircle className="h-5 w-5" />}
-                  ></LinkItem>
-                  <LinkItem
-                    title="Buttons"
-                    href="/ui/buttons"
-                    icon={<MousePointerClick className="h-5 w-5" />}
-                  />
-                </ExpandMenu>
-              </li>
-
-              {/* <!-- Menu Item Ui Elements --> */}
 
               {/* <!-- Menu Item Auth Pages --> */}
               <li>

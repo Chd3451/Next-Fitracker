@@ -8,7 +8,7 @@ const DropdownUser = () => {
   const trigger = useRef<any>(null);
   const dropdown = useRef<any>(null);
 
-  // close on click outside
+  // close on click outsides
   useEffect(() => {
     const clickHandler = ({ target }: MouseEvent) => {
       if (!dropdown.current) return;
@@ -44,9 +44,9 @@ const DropdownUser = () => {
       >
         <span className="hidden text-right lg:block">
           <span className="block text-sm font-medium text-black dark:text-white">
-            Sadman Shakib
+           Charlie Delgado
           </span>
-          <span className="block text-xs">Full Stack Developer</span>
+          <span className="block text-xs">Trainer</span>
         </span>
 
         <span className="h-12 w-12 rounded-full">
@@ -54,7 +54,7 @@ const DropdownUser = () => {
             className="rounded-full"
             width={112}
             height={112}
-            src={"/images/sadmanshakib.jpg"}
+            src={"/images/user.webp"}
             alt="User"
           />
         </span>
