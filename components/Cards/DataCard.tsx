@@ -1,37 +1,42 @@
-import {
-  BadgeDelta,
-  Card,
-  Flex,
-  Metric,
-  ProgressBar,
-  Text,
-} from "@tremor/react";
+// components/Cards/DataCard.tsx
+
 import React from "react";
+import { BadgeDelta, Card, Flex, Metric, ProgressBar, Text } from "@tremor/react";
 
 type Props = {
   name: string;
   amount: number;
+  percentageChange: number;
+  currentValue: number;
+  totalValue: number;
+  progress: number;
 };
 
-const DataCard = (props: Props) => {
-  const { name, amount } = props;
+const DataCard: React.FC<Props> = ({
+  name,
+  amount,
+  percentageChange,
+  currentValue,
+  totalValue,
+  progress
+}) => {
   return (
-    <div>
-      <Card className="mx-auto max-w-lg">
-        <Flex alignItems="start">
-          <div>
-            <Text>{name}</Text>
-            <Metric> {amount}</Metric>
-          </div>
-          <BadgeDelta deltaType="moderateIncrease">15%</BadgeDelta>
-        </Flex>
-        <Flex className="mt-4">
-          <Text className="truncate">14.5% ( 145)</Text>
-          <Text> 1,000</Text>
-        </Flex>
-        <ProgressBar value={15.9} className="mt-2" />
-      </Card>
-    </div>
+    <Card className="mx-auto max-w-lg">
+      <Flex alignItems="start">
+        <div>
+          <Text>{name}</Text>
+          <Metric>{amount}</Metric>
+        </div>
+        <BadgeDelta deltaType={percentageChange >= 0 ? "moderateIncrease" : "moderateDecrease"}>
+          {percentageChange}%
+        </BadgeDelta>
+      </Flex>
+      <Flex className="mt-4">
+        <Text className="truncate">{currentValue}% ({totalValue})</Text>
+        <Text>{amount}</Text>
+      </Flex>
+      <ProgressBar value={progress} className="mt-2" />
+    </Card>
   );
 };
 

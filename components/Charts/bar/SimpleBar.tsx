@@ -1,56 +1,33 @@
-import { BarChart, Card, Subtitle, Title } from "@tremor/react";
+// components/Charts/bar.tsx
+import React from 'react';
+import { Bar } from 'react-chartjs-2';
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 
-const chartdata = [
-  {
-    name: "Amphibians",
-    "Number of threatened species": 2488,
-  },
-  {
-    name: "Birds",
-    "Number of threatened species": 1445,
-  },
-  {
-    name: "Crustaceans",
-    "Number of threatened species": 743,
-  },
-  {
-    name: "Ferns",
-    "Number of threatened species": 281,
-  },
-  {
-    name: "Arachnids",
-    "Number of threatened species": 251,
-  },
-  {
-    name: "Corals",
-    "Number of threatened species": 232,
-  },
-  {
-    name: "Algae",
-    "Number of threatened species": 98,
-  },
-];
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-const valueFormatter = (number: number) =>
-  `$ ${new Intl.NumberFormat("us").format(number).toString()}`;
+type SimpleBarProps = {
+  data: {
+    clienteCount: number;
+    averageWeight: number;
+    averageMetaPeso: number;
+  };
+};
 
-const SimpleBar = () => (
-  <Card>
-    <Title>Number of species threatened with extinction (2021)</Title>
-    <Subtitle>
-      The IUCN Red List has assessed only a small share of the total known
-      species in the world.
-    </Subtitle>
-    <BarChart
-      className="mt-6"
-      data={chartdata}
-      index="name"
-      categories={["Number of threatened species"]}
-      colors={["blue"]}
-      valueFormatter={valueFormatter}
-      yAxisWidth={48}
-    />
-  </Card>
-);
+const SimpleBar: React.FC<SimpleBarProps> = ({ data }) => {
+  const chartData = {
+    labels: ['Clientes Registrados', 'Peso Promedio', 'Meta de Peso Promedio'],
+    datasets: [
+      {
+        label: 'Datos',
+        data: [data.clienteCount, data.averageWeight, data.averageMetaPeso],
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        borderColor: 'rgba(75, 192, 192, 1)',
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  return <Bar data={chartData} />;
+};
 
 export default SimpleBar;

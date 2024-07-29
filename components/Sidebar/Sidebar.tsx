@@ -72,16 +72,12 @@ const Sidebar = ({}: SidebarProps) => {
             >
               {/* <!-- Menu Item Dashboard --> */}
               <li>
-                <ExpandMenu
-                  name="Pagina Principal"
-                  icon={<HomeIcon className="  h-6 w-6 hover:text-white" />}
-                >
+                
                   <LinkItem
-                    icon={<ShoppingBag />}
-                    title="Ventas"
+                    icon={<HomeIcon />}
+                    title="Pagina Principal"
                     href="/"
                   />
-                </ExpandMenu>
               </li>
               {/* <!-- Menu Item Dashboard --> */}
 
@@ -128,7 +124,7 @@ const Sidebar = ({}: SidebarProps) => {
                   icon={<FaCalculator className="h-6 w-6" />}
                 ></LinkItem>
               </li>
-              {/* <!-- Menu Item Auth Pages --> */}
+              {/* 
               <li>
                 <ExpandMenu name="Auth" icon={<LampIcon className="h-6 w-6" />}>
                   <LinkItem
@@ -143,6 +139,9 @@ const Sidebar = ({}: SidebarProps) => {
                   ></LinkItem>
                 </ExpandMenu>
               </li>
+              
+              */}
+              
 
               {/* <!-- Menu Item Auth Pages --> */}
             </ul>

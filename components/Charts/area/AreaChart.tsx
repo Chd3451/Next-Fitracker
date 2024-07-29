@@ -1,53 +1,33 @@
-import { AreaChart, Card, Title } from "@tremor/react";
+// components/Charts/area.tsx
+import React from 'react';
+import { Line } from 'react-chartjs-2';
+import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
 
-const chartdata = [
-  {
-    date: "Jul 24",
-    SemiAnalysis: 1000,
-    "Paquetes Vendidos": 145,
-  },
-  {
-    date: "Ago22",
-    SemiAnalysis: 1500,
-    "Paquetes Vendidos": 290,
-  },
-  {
-    date: "Sep 22",
-    SemiAnalysis: 1600,
-    "Paquetes Vendidos": 335,
-  },
-  {
-    date: "Oct 22",
-    SemiAnalysis: 1750,
-    "Paquetes Vendidos": 405,
-  },
-  {
-    date: "Nov 22",
-    SemiAnalysis: 1800,
-    "Paquetes Vendidos": 580,
-  },
-  {
-    date: "Dic 22",
-    SemiAnalysis: 1500,
-    "Paquetes Vendidos": 900,
-  },
-];
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
-const valueFormatter = function (number: number) {
-  return "$ " + new Intl.NumberFormat("us").format(number).toString();
+type AreaChartProps = {
+  data: {
+    clienteCount: number;
+    averageWeight: number;
+    averageMetaPeso: number;
+  };
 };
 
-const Area = () => (
-  <Card>
-    <Title>Analisis de crecimiento y Renovación (USD)</Title>
-    <AreaChart
-      className="mt-4 h-72"
-      data={chartdata}
-      index="date"
-      categories={["SemiAnalysis", "The Pragmatic Engineer"]}
-      colors={["indigo", "cyan"]}
-      valueFormatter={valueFormatter}
-    />
-  </Card>
-);
-export default Area;
+const AreaChart: React.FC<AreaChartProps> = ({ data }) => {
+  const chartData = {
+    labels: ['Clientes Registrados', 'Peso Promedio', 'Meta de Peso Promedio'],
+    datasets: [
+      {
+        label: 'Datos',
+        data: [data.clienteCount, data.averageWeight, data.averageMetaPeso],
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        borderColor: 'rgba(75, 192, 192, 1)',
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  return <Line data={chartData} />;
+};
+
+export default AreaChart;

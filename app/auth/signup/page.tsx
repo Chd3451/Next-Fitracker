@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumbs/Breadcrumb';
+import Image from "next/image";
 
 const SignUp: React.FC = () => {
   const [nombre, setNombre] = useState('');
@@ -46,7 +47,24 @@ const SignUp: React.FC = () => {
         <div className="flex flex-wrap items-center">
           <div className="hidden w-full xl:block xl:w-1/2">
             <div className="px-26 py-17.5 text-center">
-              {/* Aquí puedes agregar alguna imagen o contenido adicional */}
+           <Link className="mb-5.5 inline-block" href="/">
+                <h1 className="text-2xl font-semibold text-white">
+                  FitTracker
+                </h1>
+                <Image
+                  className="dark:hidden"
+                  src={"/images/FitTracker.svg"}
+                  alt="Logo"
+                  width={176}
+                  height={32}
+                />
+              </Link>
+
+              <p className="2xl:px-20">
+                Mantén un registro detallado de tu progreso físico y alcanza tus metas con FitTracker.
+              </p>
+
+              <span className="mt-15 inline-block"></span>
             </div>
           </div>
 
@@ -112,7 +130,7 @@ const SignUp: React.FC = () => {
                       type="password"
                       value={contrasena}
                       onChange={(e) => setContrasena(e.target.value)}
-                      placeholder="Ingrese una contraseña segura."
+                      placeholder="6+ Caracteres, 1 Letra Mayúscula"
                       className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
                     />
                   </div>
@@ -127,7 +145,7 @@ const SignUp: React.FC = () => {
                       type="password"
                       value={confirmarContrasena}
                       onChange={(e) => setConfirmarContrasena(e.target.value)}
-                      placeholder="Confirma la contraseña"
+                      placeholder="6+ Caracteres, 1 Letra Mayúscula"
                       className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
                     />
                   </div>

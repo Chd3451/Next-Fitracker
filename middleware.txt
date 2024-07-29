@@ -1,0 +1,38 @@
+// middleware.ts
+import { NextRequest, NextResponse } from 'next/server';
+import { jwtVerify } from 'jose';
+
+const SECRET_KEY = process.env.JWT_SECRET || '';
+
+export async function middleware(req: NextRequest) {
+  const { pathname } = req.nextUrl;
+
+  // Definir rutas públicas que no necesitan autenticación
+  const publicPaths = ['/auth/signin', '/auth/signup', '/public'];
+
+  // Si la ruta es pública, no hacer redirección
+  if (publicPaths.some(path => pathname.startsWith(path))) {
+    return NextResponse.next();
+  }
+
+  // Obtener el token de las cookies
+  const token = req.cookies.get('token');
+
+  // Si no hay token, redirigir a la página de inicio de sesión
+  if (!token) {
+    return NextResponse.redirect(new URL('/auth/signin', req.url));
+  }
+
+  try {
+    // Verificar el token JWT
+    await jwtVerify(token.value, new TextEncoder().encode(SECRET_KEY));
+    return NextResponse.next();
+  } catch (error) {
+    // Si el token no es válido, redirigir a la página de inicio de sesión
+    return NextResponse.redirect(new URL('/auth/signin', req.url));
+  }
+}
+
+export const config = {
+  matcher: ['/((?!_next/static|_next/image|favicon.ico).*)'], // Excluye rutas estáticas
+};

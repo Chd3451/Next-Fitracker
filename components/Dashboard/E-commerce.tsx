@@ -1,36 +1,65 @@
 "use client";
-import React from "react";
 
-import { AreaChart, SimpleBar } from "@/components/Charts";
-import ChatCard from "../Chat/ChatCard";
-import TableOne from "../Tables/TableOne";
-
-// without this the component renders on server and throws an error
-import dynamic from "next/dynamic";
+import React, { useEffect, useState } from "react";
 import DataCard from "../Cards/DataCard";
-const MapOne = dynamic(() => import("../Maps/MapOne"), {
-  ssr: false,
-});
+import AreaChart from "../Charts/area";
+import SimpleBar from "../Charts/bar"; // Asegúrate de que el componente SimpleBar esté bien definido
 
 const ECommerce: React.FC = () => {
+  const [data, setData] = useState<any>({
+    clienteCount: 0,
+    averageWeight: 0,
+    averageMetaPeso: 0,
+  });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('/api/dashboard-data');
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const result = await response.json();
+        setData(result);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-3 2xl:gap-7.5">
-        <DataCard name="Metas" amount={1000} />
-        <DataCard name="orders" amount={1001} />
-        <DataCard name="Clientes" amount={145} />
+      <DataCard
+          name="Clientes Registrados"
+          amount={data.clienteCount}
+          percentageChange={15} // Ajusta según tus datos
+          currentValue={data.clienteCount}
+          totalValue={1000} // Ajusta según tus datos
+          progress={15} // Ajusta según tus datos
+        />
+        <DataCard
+          name="Peso Promedio"
+          amount={data.averageWeight.toFixed(2)}
+          percentageChange={10} // Ajusta según tus datos
+          currentValue={data.averageWeight.toFixed(2)}
+          totalValue={150} // Ajusta según tus datos
+          progress={25} // Ajusta según tus datos
+        />
+        <DataCard
+          name="Meta de Peso Promedio"
+          amount={data.averageMetaPeso.toFixed(2)}
+          percentageChange={5} // Ajusta según tus datos
+          currentValue={data.averageMetaPeso.toFixed(2)}
+          totalValue={200} // Ajusta según tus datos
+          progress={20} // Ajusta según tus datos
+        />
       </div>
       <div className="space-y-5 py-5">
-        <AreaChart />
-        <SimpleBar />
-      </div>
-
-      <div className="mt-4 grid grid-cols-12 gap-4 md:mt-6 md:gap-6 2xl:mt-7.5 2xl:gap-7.5">
-        <MapOne />
-        <div className="col-span-12 xl:col-span-8">
-          <TableOne />
-        </div>
-        <ChatCard />
+        <AreaChart data={data} />
+        <SimpleBar data={data} /> {/* Asegúrate de que SimpleBar acepte los datos */}
       </div>
     </>
   );
