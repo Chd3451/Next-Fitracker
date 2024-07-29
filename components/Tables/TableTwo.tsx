@@ -5,33 +5,33 @@ const productData: Product[] = [
   {
     image: "/images/product/keto-01.jpg",
     name: "Dieta Keto",
-    category: "Complemento",
-    price: 5,
-    sold: 100000,
+    category: "Dieta",
+    price: 0,
+    sold: 90-110,
     profit: 1,
   },
   {
     image: "/images/product/entrenamiento-02.png",
     name: "Entrenamiento",
     category: "Fisico",
-    price: 25.0,
-    sold: 5,
+    price: 0,
+    sold: 90-110,
     profit: 5,
   },
   {
     image: "/images/product/aumentomasa-03.jpg",
     name: "Aumento de masa Muscular",
-    category: "Comidas",
-    price: 8,
-    sold: 0,
+    category: "Dieta",
+    price: 0,
+    sold: 50-70,
     profit: 5,
   },
   {
     image: "/images/product/rutinalibre-4.jpg",
     name: "Rutina Libre",
-    category: "Fisico",
+    category: "FEntrenamiento",
     price: 5,
-    sold: 0,
+    sold: 70-90,
     profit: 5,
   },
 ];
@@ -56,7 +56,7 @@ const TableTwo = () => {
           <p className="font-medium">Price</p>
         </div>
         <div className="col-span-1 flex items-center">
-          <p className="font-medium">Sold</p>
+          <p className="font-medium">Peso Recomendado</p>
         </div>
         <div className="col-span-1 flex items-center">
           <p className="font-medium">Profit</p>

@@ -1,16 +1,7 @@
-import { BRAND } from "@/types/brand";
+import { Table, TableHead, TableHeaderCell, TableBody, TableRow, TableCell, Title } from "@tremor/react";
 import Image from "next/image";
-import {
-  Table,
-  TableHead,
-  TableHeaderCell,
-  TableBody,
-  TableRow,
-  TableCell,
-  Title,
-} from "@tremor/react";
 
-const brandData: BRAND[] = [
+const brandData = [
   {
     logo: "/images/brand/brand-01.svg",
     name: "Google Adds",
@@ -22,7 +13,7 @@ const brandData: BRAND[] = [
   {
     logo: "/images/brand/brand-02.svg",
     name: "Twitter",
-    visitors: 2.,
+    visitors: 2.0,
     revenues: "15 Day Free",
     sales: 0,
     conversion: 1,
@@ -35,7 +26,6 @@ const brandData: BRAND[] = [
     sales: 0,
     conversion: 5,
   },
-  
   {
     logo: "/images/brand/brand-05.svg",
     name: "Facebook",
@@ -57,7 +47,7 @@ const TableOne = () => {
             <TableHeaderCell>Visitas</TableHeaderCell>
             <TableHeaderCell>Renovaciones</TableHeaderCell>
             <TableHeaderCell>Ventas</TableHeaderCell>
-            <TableHeaderCell>Conversion</TableHeaderCell>
+            <TableHeaderCell>Conversión</TableHeaderCell>
           </TableRow>
         </TableHead>
         <TableBody>
