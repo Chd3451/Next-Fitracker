@@ -337,7 +337,7 @@ module.exports = {
         video: "url('../images/video/video.png')",
       },
       content: {
-        "icon-copy": 'url("../images/icon/icon-copy-alt.svg")',
+        "icon-copy": 'url("../images/FitTracker.svg")',
       },
       transitionProperty: { width: "width", stroke: "stroke" },
       borderWidth: {

@@ -1,4 +1,4 @@
-import { FaRunning, FaUserPlus } from "react-icons/fa";
+import { FaRunning, FaUserPlus, FaCalculator } from "react-icons/fa";
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -121,7 +121,13 @@ const Sidebar = ({}: SidebarProps) => {
                   icon={<FaUserPlus className="h-6 w-6" />}
                 ></LinkItem>
               </li>
-
+              <li>
+                <LinkItem
+                  title="Calculadora de BMR"
+                  href="/calculadora"
+                  icon={<FaCalculator className="h-6 w-6" />}
+                ></LinkItem>
+              </li>
               {/* <!-- Menu Item Auth Pages --> */}
               <li>
                 <ExpandMenu name="Auth" icon={<LampIcon className="h-6 w-6" />}>

@@ -32,7 +32,7 @@ export async function PUT(req: NextRequest) {
     return NextResponse.json({ message: 'ID de cliente no proporcionado' }, { status: 400 });
   }
 
-  const { nombre, fechaNacimiento, peso, altura, metaPeso, email, telefono, genero, direccion } = await req.json();
+  const { nombre, fechaNacimiento, peso, altura, metaPeso, email, telefono, genero, direccion, actividad} = await req.json();
 
   try {
     const updatedCliente = await prisma.cliente.update({
@@ -47,6 +47,7 @@ export async function PUT(req: NextRequest) {
         telefono,
         genero,
         direccion,
+        actividad,
       },
     });
     return NextResponse.json(updatedCliente, { status: 200 });
