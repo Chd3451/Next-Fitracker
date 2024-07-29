@@ -90,15 +90,15 @@ const Sidebar = ({}: SidebarProps) => {
                 ></LinkItem>
               </li>
 
-              <li>
+              
+
+              {/*<li>
                 <LinkItem
                   title="Productos"
                   href="/tables"
                   icon={<Table2Icon className="h-6 w-6" />}
                 ></LinkItem>
-              </li>
-
-              {/* <!-- Menu Item Tables --> */}
+              </li> */}
 
               
               <li>
