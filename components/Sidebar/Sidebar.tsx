@@ -92,13 +92,13 @@ const Sidebar = ({}: SidebarProps) => {
 
               
 
-              {/*<li>
+              <li>
                 <LinkItem
-                  title="Productos"
+                  title="Planes"
                   href="/tables"
-                  icon={<Table2Icon className="h-6 w-6" />}
+                  icon={<ShoppingBag className="h-6 w-6" />}
                 ></LinkItem>
-              </li> */}
+              </li> 
 
               
               <li>

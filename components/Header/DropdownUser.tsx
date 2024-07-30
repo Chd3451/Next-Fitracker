@@ -54,7 +54,7 @@ const DropdownUser = () => {
             className="rounded-full"
             width={112}
             height={112}
-            src={"/images/user.webp"}
+            src={"/images/user/user-06.png"}
             alt="User"
           />
         </span>

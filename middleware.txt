@@ -10,13 +10,18 @@ export async function middleware(req: NextRequest) {
   // Definir rutas públicas que no necesitan autenticación
   const publicPaths = ['/auth/signin', '/auth/signup', '/public'];
 
+  // Excluir las rutas de la API
+  if (pathname.startsWith('/api')) {
+    return NextResponse.next();
+  }
+
   // Si la ruta es pública, no hacer redirección
   if (publicPaths.some(path => pathname.startsWith(path))) {
     return NextResponse.next();
   }
 
   // Obtener el token de las cookies
-  const token = req.cookies.get('token');
+  const token = req.cookies.get('token')?.value;
 
   // Si no hay token, redirigir a la página de inicio de sesión
   if (!token) {
@@ -25,14 +30,17 @@ export async function middleware(req: NextRequest) {
 
   try {
     // Verificar el token JWT
-    await jwtVerify(token.value, new TextEncoder().encode(SECRET_KEY));
+    await jwtVerify(token, new TextEncoder().encode(SECRET_KEY));
     return NextResponse.next();
   } catch (error) {
+    console.error('JWT verification error:', error);
     // Si el token no es válido, redirigir a la página de inicio de sesión
     return NextResponse.redirect(new URL('/auth/signin', req.url));
   }
 }
 
 export const config = {
-  matcher: ['/((?!_next/static|_next/image|favicon.ico).*)'], // Excluye rutas estáticas
+  matcher: [
+    '/((?!_next/static|_next/image|favicon.ico).*)', // Excluye rutas estáticas, pero incluye la API en las rutas coincidentes
+  ],
 };
